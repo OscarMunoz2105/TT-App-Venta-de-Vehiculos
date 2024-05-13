@@ -5,18 +5,18 @@ import streamlit as st
 # Leer el archivo CSV
 car_data = pd.read_csv('vehicles_us.csv')
 
-# Crear un botón para construir un histograma
-hist_button = st.button('Construir histograma')
+# Crear una casilla de verificación para construir un histograma
+build_histogram = st.checkbox('Construir un histograma')
 
-# Crear un botón para construir un gráfico de dispersión
-scatter_button = st.button('Construir gráfico de dispersión')
+# Crear una casilla de verificación para construir un gráfico de dispersión
+build_scatter = st.checkbox('Construir un gráfico de dispersión')
 
-if hist_button: # si se hace clic en el botón de histograma
+if build_histogram: # si la casilla de verificación de histograma está marcada
     st.write('Construyendo un histograma para el conjunto de datos de anuncios de venta de coches')
     fig = px.histogram(car_data, x="odometer")
     st.plotly_chart(fig, use_container_width=True)
 
-if scatter_button: # si se hace clic en el botón de gráfico de dispersión
+if build_scatter: # si la casilla de verificación de gráfico de dispersión está marcada
     st.write('Construyendo un gráfico de dispersión para el conjunto de datos de anuncios de venta de coches')
     fig = px.scatter(car_data, x="model_year", y="price")  # Corrección aquí: "model_year" en lugar de "year"
     st.plotly_chart(fig, use_container_width=True)
