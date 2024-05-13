@@ -5,6 +5,9 @@ import streamlit as st
 # Leer el archivo CSV
 car_data = pd.read_csv('vehicles_us.csv')
 
+# Agregar un encabezado
+st.header('Análisis de datos de anuncios de venta de coches')
+
 # Crear una casilla de verificación para construir un histograma
 build_histogram = st.checkbox('Construir un histograma')
 
